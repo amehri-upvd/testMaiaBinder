@@ -17,3 +17,5 @@ dependencies:
   - jupyterlab    # For Binder notebook interface
   - ipykernel
   - jupyter_client
+  - pip
+
