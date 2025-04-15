@@ -14,16 +14,12 @@ cd build
 source /srv/conda/etc/profile.d/conda.sh
 conda activate notebook
 
-export MPICC="$CC"
-export MPICXX="$CXX"
-
-
 # Configure with proper Python paths
 PY_VER=$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 cmake ../ \
   -DCMAKE_INSTALL_PREFIX="$CONDA_PREFIX" \
-  -DCMAKE_C_COMPILER="$MPICC" \
-  -DCMAKE_CXX_COMPILER="$MPICXX" \
+  -DCMAKE_C_COMPILER=$(which mpicc) \
+  -DCMAKE_CXX_COMPILER=$(which mpicxx) \
   -DCMAKE_CXX_STANDARD=17 \
   -DPython_EXECUTABLE="$CONDA_PREFIX/bin/python" \
   -DPython3_NumPy_INCLUDE_DIRS="$CONDA_PREFIX/lib/python$PY_VER/site-packages/numpy/core/include" \
@@ -31,7 +27,3 @@ cmake ../ \
 
 make -j$(nproc)
 make install
-
-# Associer le kernel à l'env
-python -m ipykernel install --user --name notebook --display-name "Python (maia)"
-
