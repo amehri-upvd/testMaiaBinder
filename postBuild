@@ -28,5 +28,9 @@ cmake ../ \
 make -j$(nproc)
 make install
 
-# Assurer que le noyau Jupyter est bien lié à l'environnement
+# Associer le kernel à l'env
 python -m ipykernel install --user --name notebook --display-name "Python (maia)"
+
+# Installer l'interface Python de maia via pip
+cd ../python
+pip install .
