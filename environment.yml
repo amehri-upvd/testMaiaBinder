@@ -1,0 +1,19 @@
+name: maia_tutorials
+channels:
+  - conda-forge
+  - default
+dependencies:
+  - python=3.9
+  - numpy=1.26.0
+  - pybind11
+  - setuptools
+  - wheel
+  - pytest
+  - pytest-html
+  - mpi4py=3.1.5
+  - cython=0.29.36
+  - h5py
+  - pyyaml
+  - jupyterlab    # For Binder notebook interface
+  - ipykernel
+  - jupyter_client

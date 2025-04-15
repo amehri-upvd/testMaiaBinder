@@ -1,0 +1,29 @@
+#!/bin/bash
+set -ex
+
+# -------------------------------------------------------------------
+# Clone and build MAIA
+# -------------------------------------------------------------------
+git clone --depth 1 https://github.com/onera/Maia.git
+cd Maia
+git submodule update --init
+
+mkdir -p build
+cd build
+
+source /srv/conda/etc/profile.d/conda.sh
+conda activate notebook
+
+# Configure with proper Python paths
+PY_VER=$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+cmake ../ \
+  -DCMAKE_INSTALL_PREFIX="$CONDA_PREFIX" \
+  -DCMAKE_C_COMPILER=$(which mpicc) \
+  -DCMAKE_CXX_COMPILER=$(which mpicxx) \
+  -DCMAKE_CXX_STANDARD=17 \
+  -DPython_EXECUTABLE="$CONDA_PREFIX/bin/python" \
+  -DPython3_NumPy_INCLUDE_DIRS="$CONDA_PREFIX/lib/python$PY_VER/site-packages/numpy/core/include" \
+  -DCMAKE_BUILD_TYPE=Release
+
+make -j$(nproc)
+make install
