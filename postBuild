@@ -32,4 +32,4 @@ make -j$(nproc)
 make install
 
  Add to Python path
-echo "export PYTHONPATH=\"\$PYTHONPATH:$(pwd)/../Dist/lib\"" >> ~/.bashrc
+echo "export PYTHONPATH=\"\$PYTHONPATH:/home/jovyan/Maia/Dist/lib/python3.10/site-packages\"" >> ~/.bashrc
