@@ -28,8 +28,8 @@ cmake ../ \
   -DPython3_NumPy_INCLUDE_DIRS=$(python -c "import numpy; print(numpy.get_include())") \
   -DCMAKE_BUILD_TYPE=Release
 
-make -j$(nproc)
+make -j
 make install
 
-#Add to Python path
-echo "export PYTHONPATH=\"\$PYTHONPATH:/home/jovyan/Maia/Dist/lib/python3.10/site-packages\"" >> ~/.bashrc
+# Add to Python path
+echo "export PYTHONPATH=\"\$PYTHONPATH:$(pwd)/../Dist/lib\"" >> ~/.bashrc
