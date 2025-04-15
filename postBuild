@@ -28,8 +28,8 @@ cmake ../ \
   -DPython3_NumPy_INCLUDE_DIRS=$(python -c "import numpy; print(numpy.get_include())") \
   -DCMAKE_BUILD_TYPE=Release
 
-source source.sh
 make -j
+source source.sh
 make install
 
 # Add to Python path
