@@ -14,16 +14,22 @@ cd build
 source /srv/conda/etc/profile.d/conda.sh
 conda activate notebook
 
-# Configure with proper Python paths
-PY_VER=$(python -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+# Explicitly locate system libraries
+export PARMETIS_ROOT=/usr         # System ParMETIS
+export PTSCOTCH_ROOT=/usr         # System PT-Scotch
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
+
 cmake ../ \
-  -DCMAKE_INSTALL_PREFIX="$CONDA_PREFIX" \
+  -DCMAKE_INSTALL_PREFIX="../Dist" \
   -DCMAKE_C_COMPILER=$(which mpicc) \
   -DCMAKE_CXX_COMPILER=$(which mpicxx) \
   -DCMAKE_CXX_STANDARD=17 \
-  -DPython_EXECUTABLE="$CONDA_PREFIX/bin/python" \
-  -DPython3_NumPy_INCLUDE_DIRS="$CONDA_PREFIX/lib/python$PY_VER/site-packages/numpy/core/include" \
+  -DPython_EXECUTABLE=$(which python) \
+  -DPython3_NumPy_INCLUDE_DIRS=$(python -c "import numpy; print(numpy.get_include())") \
   -DCMAKE_BUILD_TYPE=Release
 
 make -j$(nproc)
 make install
+
+ Add to Python path
+echo "export PYTHONPATH=\"\$PYTHONPATH:$(pwd)/../Dist/lib\"" >> ~/.bashrc
