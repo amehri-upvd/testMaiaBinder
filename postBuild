@@ -29,18 +29,6 @@ cmake ../ \
   -DCMAKE_BUILD_TYPE=Release
 
 make -j
-
-# Lire et exécuter le contenu de source.sh (s'assurer qu'il existe)
-if [[ -f source.sh ]]; then
-    echo "==> Contenu de source.sh :"
-    cat source.sh
-    echo "==> Exécution de source.sh..."
-    source <(cat source.sh)
-else
-    echo "ERREUR: source.sh est introuvable !"
-    exit 1
-fi
-
 make install
 
 # Add to Python path
