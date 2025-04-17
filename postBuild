@@ -1,38 +1,55 @@
 #!/bin/bash
-set -ex
+set -e
 
-# -------------------------------------------------------------------
-# Clone and build MAIA
-# -------------------------------------------------------------------
-git clone --depth 1 https://github.com/onera/Maia.git
+# Clone MAIA repository
+git clone https://github.com/onera/Maia.git
 cd Maia
+
+# Initialize direct submodules to avoid private ones
 git submodule update --init
 
+# Create build directory and navigate to it
 mkdir -p build
 cd build
 
-source /srv/conda/etc/profile.d/conda.sh
-conda activate notebook
+# Set compiler variables for Conda environment
+export CC=$(which gcc)
+export CXX=$(which g++)
+export MPICC=$(which mpicc)
+export MPICXX=$(which mpicxx)
 
-# Explicitly locate system libraries
-export PARMETIS_ROOT=/usr         # System ParMETIS
-export PTSCOTCH_ROOT=/usr         # System PT-Scotch
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
+# Get Python and NumPy paths dynamically
+PYTHON_EXECUTABLE=$(which python)
+PYTHON_INCLUDE_DIR=$(python -c "import sysconfig; print(sysconfig.get_path('include'))")
+NUMPY_INCLUDE_DIR=$(python -c "import numpy; print(numpy.get_include())")
 
-cmake ../ \
-  -DCMAKE_INSTALL_PREFIX="../Dist" \
-  -DCMAKE_C_COMPILER=$(which mpicc) \
-  -DCMAKE_CXX_COMPILER=$(which mpicxx) \
+# Configure CMake with specific flags for MAIA build
+cmake .. \
+  -DCMAKE_INSTALL_PREFIX="$(pwd)/../Dist" \
+  -DCMAKE_C_COMPILER="${CC}" \
+  -DCMAKE_CXX_COMPILER="${CXX}" \
+  -DMPI_C_COMPILER="${MPICC}" \
+  -DMPI_CXX_COMPILER="${MPICXX}" \
   -DCMAKE_CXX_STANDARD=17 \
-  -DPython_EXECUTABLE=$(which python) \
-  -DPython3_NumPy_INCLUDE_DIRS=$(python -c "import numpy; print(numpy.get_include())") \
-  -DCMAKE_BUILD_TYPE=Release
+  -DCMAKE_EXE_LINKER_FLAGS='-lz -lbz2' \
+  -DCMAKE_SHARED_LINKER_FLAGS='-lz -lbz2' \
+  -DPDM_ENABLE_LONG_G_NUM=OFF \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DPython_EXECUTABLE="${PYTHON_EXECUTABLE}" \
+  -DPython_ROOT_DIR="$(dirname $(dirname ${PYTHON_EXECUTABLE}))" \
+  -DPython_INCLUDE_DIRS="${PYTHON_INCLUDE_DIR}" \
+  -DPython_NumPy_INCLUDE_DIRS="${NUMPY_INCLUDE_DIR}" \
+  -DPython3_EXECUTABLE="${PYTHON_EXECUTABLE}" \
+  -DPython3_INCLUDE_DIRS="${PYTHON_INCLUDE_DIR}" \
+  -DPython3_NumPy_INCLUDE_DIRS="${NUMPY_INCLUDE_DIR}" \
+  -DPython_NumPy=ON
 
-make -j
+# Build MAIA with parallel processing
+make -j$(nproc)
+
+# Install MAIA
 make install
 
-# Add to Python path
-echo "export PYTHONPATH=\"\$PYTHONPATH:$(pwd)/../Dist/lib\"" >> ~/.bashrc
-
-# Assurer que le noyau Jupyter est bien lié à l'environnement
-python -m ipykernel install --user --name notebook --display-name "Python (maia)"
+echo 'export PYTHONPATH=/home/jovyan/Maia/Dist/lib/python3.10/site-packages:$PYTHONPATH' >> /home/jovyan/.bashrc
+echo 'export LD_LIBRARY_PATH=/home/jovyan/Maia/Dist/lib:$LD_LIBRARY_PATH' >> /home/jovyan/.bashrc
+echo 'export PATH=/home/jovyan/Maia/Dist/bin:$PATH' >> /home/jovyan/.bashrc
