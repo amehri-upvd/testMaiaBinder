@@ -1,5 +1,3 @@
 #!/bin/bash
-export PYTHONPATH=/home/jovyan/Maia/Dist/lib/python3.10/site-packages:$PYTHONPATH
-export LD_LIBRARY_PATH=/home/jovyan/Maia/Dist/lib:$LD_LIBRARY_PATH
-export PATH=/home/jovyan/Maia/Dist/bin:$PATH
+source /home/jovyan/Maia/build/source.sh
 exec "$@"
