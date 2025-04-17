@@ -49,7 +49,3 @@ make -j$(nproc)
 
 # Install MAIA
 make install
-
-echo 'export PYTHONPATH=/home/jovyan/Maia/Dist/lib/python3.10/site-packages:$PYTHONPATH' >> /home/jovyan/.bashrc
-echo 'export LD_LIBRARY_PATH=/home/jovyan/Maia/Dist/lib:$LD_LIBRARY_PATH' >> /home/jovyan/.bashrc
-echo 'export PATH=/home/jovyan/Maia/Dist/bin:$PATH' >> /home/jovyan/.bashrc
