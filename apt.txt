@@ -11,3 +11,4 @@ python3-dev
 libparmetis-dev
 libptscotch-dev
 libopenmpi-dev
+libhdf5-serial-dev
