@@ -12,3 +12,4 @@ libparmetis-dev
 libptscotch-dev
 libopenmpi-dev
 libhdf5-serial-dev
+libhdf5-mpi-dev
