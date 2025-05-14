@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
 
+# Configure environment for parallel h5py
+export CC=mpicc
+export HDF5_MPI="ON"
+
+# Uninstall any existing h5py to reinstall with parallel support
+pip uninstall -y h5py
+
+# Install h5py with parallel support
+pip install --no-binary=h5py h5py
+
 # Clone MAIA repository
 git clone https://github.com/onera/Maia.git
 cd Maia
