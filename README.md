@@ -1,5 +1,5 @@
 # MAIA MyBinder Environment with Parallel h5py Support
-[![Binder](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)
+[![Binder](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)]
 
 This repository contains configuration files for running MAIA in a MyBinder environment with parallel HDF5/h5py support.
 
