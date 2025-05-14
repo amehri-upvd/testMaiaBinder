@@ -1,3 +1,11 @@
 #!/bin/bash
-source /home/jovyan/Maia/build/source.sh
+# Set environment variables for parallel HDF5/h5py
+export CC=mpicc
+export HDF5_MPI="ON"
+
+# Source MAIA environment if available
+if [ -f "/home/jovyan/Maia/build/source.sh" ]; then
+  source /home/jovyan/Maia/build/source.sh
+fi
+
 exec "$@"
