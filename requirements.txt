@@ -6,5 +6,5 @@ pytest
 pytest-html
 mpi4py==3.1.5
 cython==0.29.36
-h5py
+# h5py is installed with parallel support in postBuild
 PyYAML
