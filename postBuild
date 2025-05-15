@@ -11,6 +11,9 @@ pip uninstall -y h5py
 # Install h5py with parallel support
 pip install --no-binary=h5py h5py
 
+# Install ipyparallel to run a notebook in paralel
+pip install ipyparallel
+
 # Clone MAIA repository
 git clone https://github.com/onera/Maia.git
 cd Maia
@@ -59,3 +62,5 @@ make -j$(nproc)
 
 # Install MAIA
 make install
+
+mv /home/jovyan/Maia/doc ./
