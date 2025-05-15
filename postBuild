@@ -63,4 +63,4 @@ make -j$(nproc)
 # Install MAIA
 make install
 
-mv /home/jovyan/Maia/doc/notebook_tutorials /home/jovyan
+cp /home/jovyan/Maia/doc/notebook_tutorials /home/jovyan
