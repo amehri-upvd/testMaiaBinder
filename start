@@ -10,5 +10,6 @@ fi
 
 # Create Directory cible
 mkdir -p Public/maia_training/MESHES
+mv *.gz Public/maia_training/MESHES/
 
 exec "$@"
