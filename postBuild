@@ -63,5 +63,13 @@ make -j$(nproc)
 # Install MAIA
 make install
 
-#Copy Tutorial notebook
-#cp /home/jovyan/Maia/doc/notebook_tutorials /home/jovyan
+# Create Directory cible
+mkdir -p /stck/jcoulet/Public/maia_training/MESHES
+
+# Move .gz files into directory
+mv *.gz /stck/jcoulet/Public/maia_training/MESHES/
+
+cd /stck/jcoulet/Public/maia_training/MESHES/
+
+# Decompression.gz files
+gzip -d *.gz
