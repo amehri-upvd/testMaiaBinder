@@ -63,5 +63,3 @@ make -j$(nproc)
 # Install MAIA
 make install
 
-# Decompression.gz files
-gzip -d rotor37_small.cgns.gz
