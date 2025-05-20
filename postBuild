@@ -64,12 +64,12 @@ make -j$(nproc)
 make install
 
 # Create Directory cible
-mkdir -p /Public/maia_training/MESHES
+mkdir -p Public/maia_training/MESHES
 
 # Move .gz files into directory
-mv *.gz /Public/maia_training/MESHES/
+mv *.gz Public/maia_training/MESHES/
 
-cd /Public/maia_training/MESHES/
+cd Public/maia_training/MESHES/
 
 # Decompression.gz files
 gzip -d *.gz
