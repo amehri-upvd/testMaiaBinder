@@ -11,5 +11,7 @@ fi
 # Create Directory cible
 mkdir -p Public/maia_training/MESHES
 mv *.gz Public/maia_training/MESHES/
+cd Public/maia_training/MESHES/
+gzip -d *.gz
 
 exec "$@"
