@@ -63,3 +63,6 @@ make -j$(nproc)
 # Install MAIA
 make install
 
+# Create Directory cible
+mkdir -p Public/maia_training/MESHES
+
