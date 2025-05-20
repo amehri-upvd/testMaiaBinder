@@ -9,7 +9,4 @@ if [ -f "/home/jovyan/Maia/build/source.sh" ]; then
 fi
 
 
-# Create Directory cible
-mkdir -p Public/maia_training/MESHES
-
 exec "$@"
