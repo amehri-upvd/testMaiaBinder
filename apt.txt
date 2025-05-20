@@ -1,4 +1,5 @@
 git
+gzip
 cmake
 make
 build-essential
