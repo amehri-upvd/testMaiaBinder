@@ -12,6 +12,10 @@ fi
 mkdir -p Public/maia_training/MESHES
 mv *.gz Public/maia_training/MESHES/
 cd Public/maia_training/MESHES/
-#gzip -d *.gz
-
+gzip -d *.gz
+if [ -f "airplane_eltR4_fields.cgns" ] && \
+   [ -f "airplane_eltR4.cgns" ] && \
+   [ -f "rotor37_small.cgns" ]; then
+  cd /home/jovyan
+fi
 exec "$@"
