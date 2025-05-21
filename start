@@ -8,6 +8,9 @@ if [ -f "/home/jovyan/Maia/build/source.sh" ]; then
   source /home/jovyan/Maia/build/source.sh
 fi
 
+# Sed to replace /home/jcoulet per /home/jovyan in notebooks
+find . -type f -name "*.ipynb" -exec sed -i 's|/home/jcoulet|/home/jovyan|g' {} +
+
 # Create Directory cible
 mkdir -p Public/maia_training/MESHES
 mv *.gz Public/maia_training/MESHES/
