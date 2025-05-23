@@ -21,4 +21,6 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
    [ -f "rotor37_small.cgns" ]; then
   cd /home/jovyan
 fi
+voila/render/tuto_maia.ipynb
+
 exec "$@"
