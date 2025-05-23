@@ -26,8 +26,8 @@ Here is basics examples of using maia:
   :maxdepth: 1
   :hidden:
 
-  01_pre_workflow/tuto_maia
-  03_post_workflow/script_cor
-  04_maia_algo/compute_centers
+  tuto_maia
+  script_cor
+  compute_centers
 
  
