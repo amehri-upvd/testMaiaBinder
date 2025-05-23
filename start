@@ -22,5 +22,6 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
   cd /home/jovyan
 fi
 voila/render/tuto_maia.ipynb
+voila/render/tuto_maia_check_outputs.ipynb
 
 exec "$@"
