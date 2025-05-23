@@ -12,6 +12,7 @@ dependencies:
   - pytest-html
   - mpi4py=3.1.5
   - cython=0.29.36
+  - pytest
   - h5py
   - pyyaml
   - jupyterlab    # For Binder notebook interface
