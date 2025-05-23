@@ -1,0 +1,7 @@
+{
+  "theme": "light",
+  "template": "material",
+  "enable_nbextensions": false,
+  "show_tracebacks": false,
+  "strip_sources": true
+}
