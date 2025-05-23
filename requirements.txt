@@ -8,3 +8,4 @@ mpi4py==3.1.6
 cython==0.29.36
 # h5py is installed with parallel support in postBuild
 PyYAML
+voila
