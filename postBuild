@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Activate Conda environment
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate maia_tutorials
+
 # Configure environment for parallel h5py
 export CC=mpicc
 export HDF5_MPI="ON"
