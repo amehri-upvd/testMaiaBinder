@@ -4,7 +4,7 @@ set -e
 echo "Python: $(which python)"
 echo "Python version: $(python --version)"
 python -c "import numpy" || echo "❌ numpy pas trouvé"
-python -c "import pytest" || echo "❌ pytest pas trouvé
+python -c "import pytest" || echo "❌ pytest pas trouvé"
 
 # Configure environment for parallel h5py
 export CC=mpicc
