@@ -2,6 +2,7 @@
 set -e
 
 # Activate Conda environment
+conda init
 conda activate maia_tutorials
 
 echo "Python version: $(python --version)"
