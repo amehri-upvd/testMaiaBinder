@@ -1,21 +1,20 @@
-prefix: /srv/conda/envs/notebook
+name: maia_tutorials
 channels:
   - conda-forge
-  - defaults
+  - default
 dependencies:
-  - python=3.10
-  - numpy
-  - pytest
+  - python=3.9
+  - numpy=1.26.0
   - pybind11
   - setuptools
   - wheel
   - pytest-html
-  - mpi4py
-  - cython
+  - mpi4py=3.1.5
+  - cython=0.29.36
+  - pytest
   - pyyaml
-  - jupyterlab
+  - jupyterlab    # For Binder notebook interface
   - ipykernel
   - jupyter_client
   - voila
   - ipywidgets
-
