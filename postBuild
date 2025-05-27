@@ -2,8 +2,11 @@
 set -e
 
 # Activate Conda environment
-source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate maia_tutorials
+
+echo "Python version: $(python --version)"
+echo "Pytest location: $(which pytest)"
+
 
 # Configure environment for parallel h5py
 export CC=mpicc
