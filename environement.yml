@@ -1,4 +1,4 @@
-name: maia_tutorials
+name: prefix: /srv/conda/envs/notebook
 channels:
   - conda-forge
   - default
