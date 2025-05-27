@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e
+# Détection manuelle du bon interpréteur Python Conda (l'environnement activé par Binder)
+PYTHON_EXECUTABLE=$(python -c "import sys; print(sys.executable)")
+PYTHON_INCLUDE_DIR=$(python -c "import sysconfig; print(sysconfig.get_path('include'))")
+NUMPY_INCLUDE_DIR=$(python -c "import numpy; print(numpy.get_include())")
 
-echo "Python version: $(python --version)"
-echo "Pytest location: $(which pytest)"
-
+echo "Using Python: $PYTHON_EXECUTABLE"
+python -m pip list | grep pytest || echo "pytest not found"
 
 # Configure environment for parallel h5py
 export CC=mpicc
