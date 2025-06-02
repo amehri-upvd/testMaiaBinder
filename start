@@ -23,5 +23,6 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
 fi
 voila/render/tuto_maia.ipynb
 voila/render/tuto_maia_check_outputs.ipynb
+voila/render/compute_centers.ipynb
 
 exec "$@"
