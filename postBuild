@@ -68,4 +68,5 @@ make -j$(nproc)
 # Install MAIA
 make install
 
+voila compute_centers.ipynb 
 
