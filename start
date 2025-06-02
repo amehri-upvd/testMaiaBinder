@@ -26,7 +26,7 @@ fi
 #voila/render/compute_centers.ipynb
 
 # Launch voila
-voila render/compute_centers.ipynb -
+voila render/compute_centers.ipynb 
 
 
 exec "$@"
