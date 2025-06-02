@@ -21,8 +21,10 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
    [ -f "rotor37_small.cgns" ]; then
   cd /home/jovyan
 fi
-voila/render/tuto_maia.ipynb
-voila/render/tuto_maia_check_outputs.ipynb
-voila/render/compute_centers.ipynb
+#voila/render/tuto_maia.ipynb
+#voila/render/tuto_maia_check_outputs.ipynb
+#voila/render/compute_centers.ipynb
+exec voila render/compute_centers.ipynb --port=8888 --no-browser --Voila.configuration_allow_origin='*' --Voila.root_dir=.
+
 
 exec "$@"
