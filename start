@@ -24,6 +24,8 @@ fi
 #voila/render/tuto_maia.ipynb
 #voila/render/tuto_maia_check_outputs.ipynb
 #voila/render/compute_centers.ipynb
+
+# Launch voila
 exec voila render/compute_centers.ipynb --port=8888 --no-browser --Voila.configuration_allow_origin='*' --Voila.root_dir=.
 
 
