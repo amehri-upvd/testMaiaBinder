@@ -2,7 +2,9 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)
 
 tuto with voila : 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD?urlpath=voila+compute_centers.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD?urlpath=voila%2Frender%2Fcompute_centers_with_voila.ipynb)
+
+
 
 
 This repository contains configuration files for running MAIA in a MyBinder environment with parallel HDF5/h5py support.
