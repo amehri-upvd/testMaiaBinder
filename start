@@ -26,7 +26,7 @@ fi
 #voila/render/compute_centers.ipynb
 
 # Launch voila
-voila render/compute_centers.ipynb --port=8888 --no-browser --Voila.configuration_allow_origin='*' --Voila.root_dir=.
+voila render/compute_centers.ipynb -
 
 
 exec "$@"
