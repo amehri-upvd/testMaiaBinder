@@ -3,5 +3,6 @@
   "template": "material",
   "enable_nbextensions": false,
   "show_tracebacks": false,
-  "strip_sources": false
+  # make the notebook interactif, and hide source code
+  "strip_sources": true,
 }
