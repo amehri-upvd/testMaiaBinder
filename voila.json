@@ -1,8 +1,0 @@
-{
-  "theme": "dark",
-  "template": "material",
-  "enable_nbextensions": false,
-  "show_tracebacks": false,
-  # make the notebook interactif, and hide source code
-  "strip_sources": true,
-}
