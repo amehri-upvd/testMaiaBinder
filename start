@@ -21,12 +21,9 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
    [ -f "rotor37_small.cgns" ]; then
   cd /home/jovyan
 fi
-#voila/render/tuto_maia.ipynb
-#voila/render/tuto_maia_check_outputs.ipynb
-#voila/render/compute_centers.ipynb
 
 # Launch voila
-#voila compute_centers.ipynb 
+#entrypoint: voila --port=$PORT --no-browser --template vuetify-default --enable_nbextensions=True compute_centers.ipynb
 
 
 exec "$@"
