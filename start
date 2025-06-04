@@ -28,7 +28,7 @@ fi
 # Launch voila
 #voila compute_centers.ipynb 
 
-python3 -m nbconvert --to notebook --execute test_notebbok_with_voila --inplace
+python3 -m nbconvert --to notebook --execute test_notebbok_with_voila.ipynb  --inplace
 
 
 exec "$@"
