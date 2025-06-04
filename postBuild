@@ -14,6 +14,10 @@ pip install --no-binary=h5py h5py
 # Install ipyparallel to run a notebook in paralel
 pip install ipyparallel
 
+# Install jupyter-flex 
+pip install jupyter-flex
+
+
 # Clone MAIA repository
 git clone https://github.com/onera/Maia.git
 cd Maia
