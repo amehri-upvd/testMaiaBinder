@@ -28,8 +28,5 @@ fi
 # Launch voila
 #voila compute_centers.ipynb 
 
-voila test_notebook_with_voila.ipynb 
-
-
 
 exec "$@"
