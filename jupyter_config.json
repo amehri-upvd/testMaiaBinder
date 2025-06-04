@@ -2,6 +2,7 @@
     "VoilaConfiguration": {
         "enable_nbextensions": true,
         "template": "vuetify-default",
+        "template": "flex",
         "strip_sources": true,
         "extension_language_mapping": {
             ".py": "python",
