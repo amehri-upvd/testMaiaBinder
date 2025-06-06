@@ -1,7 +1,7 @@
 # MAIA MyBinder Environment with Parallel h5py Support
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)
 
-tuto with voila : 
+Interactive Tutorial with voilà : 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD?urlpath=voila%2Frender%2Fnotebooks_with_voila%2FCompute_centers+_with_voila.ipynb)
 
 
