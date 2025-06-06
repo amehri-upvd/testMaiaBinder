@@ -17,3 +17,4 @@ openmpi-bin
 # HDF5 parallel dependencies
 libhdf5-openmpi-dev
 hdf5-tools
+matplotlib
