@@ -2,7 +2,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)
 
 tuto with voila : 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD?urlpath=voila%2Frender%2notebooks_with_voila/Compute_centers _with_voila.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD?urlpath=voila%2Frender%2notebooks_with_voila/Compute_centers_with_voila.ipynb)
 
 
 
