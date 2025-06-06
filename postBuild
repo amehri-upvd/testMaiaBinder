@@ -17,6 +17,9 @@ pip install ipyparallel
 # Install jupyter-flex 
 pip install jupyter-flex
 
+# Install matplotlib
+pip install matplotlib
+
 
 # Clone MAIA repository
 git clone https://github.com/onera/Maia.git
