@@ -13,7 +13,7 @@ find . -type f -name "*.ipynb" -exec sed -i 's|/home/jcoulet|/home/jovyan|g' {} 
 
 # Create Directory cible
 mkdir -p Public/maia_training/MESHES
-mv *.gz Public/maia_training/MESHES/
+mv input_cgns_files/*.gz Public/maia_training/MESHES/
 cd Public/maia_training/MESHES/
 gzip -d *.gz
 if [ -f "airplane_eltR4_fields.cgns" ] && \
