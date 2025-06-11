@@ -20,6 +20,12 @@ pip install jupyter-flex
 # Install matplotlib
 pip install matplotlib
 
+# Install myst-nb
+pip install myst-nb
+
+#Install sphinx-thebe for interactive cells
+pip install sphinx-thebe
+
 
 # Clone MAIA repository
 git clone https://github.com/onera/Maia.git
