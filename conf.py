@@ -1,10 +1,6 @@
 extensions = [ "myst_nb",
               "sphinx_thebe",
               ]
-# convertt alls cells into interactives cell with thebe
-thebe_config = {
-   "selector": "div.highlight"
-}
 
 source_suffix = {
 	'.rst': 'restructuredtext',
@@ -20,3 +16,13 @@ entry_points={
 # use the default colors
 nb_render_plugin="default"
 
+thebe_config = {
+    "repository_url": "https://github.com/amehri-upvd/testMaiaBinder",
+    "repository_branch": "main",
+
+    # convertt alls cells into interactives cell with thebe
+     "selector": "div.highlight"
+
+    # load thebe if user click run
+    "always_load": False                  # défaut = True
+}
