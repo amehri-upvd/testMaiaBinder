@@ -1,0 +1,474 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>test thebe &mdash; Maia  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/read_the_docs_custom.css?v=3c83b919" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+
+  
+    <link rel="shortcut icon" href="../../_static/logo_maia.svg"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe, div.highlight, .cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+      <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+      <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+      <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe, div.highlight, .cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Release notes" href="../../release_notes.html" />
+    <link rel="prev" title="Developing and Comparing" href="compute_centers_interactif.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Maia
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_manual/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_manual/developer_manual.html">Developer Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../maia_pytree/pytree_module.html">The pytree module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../interactive_tuto.html">Interactive Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01_pre_workflow/tuto_maia.html">Parallel CGNS Tree Processing with maia and MPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_post_workflow/script_cor.html">Post-processing Volumetric CFD Data with maia : Surface extraction and Vizualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_centers_interactif.html">Developing and Comparing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">test thebe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-import-modules">Step 1 – import modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-create-an-instance">Step 2 – Create an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-calcul-cells-s-center-withn-a-cgns-zone">Step 3 – Calcul cells’s center withn a CGNS zone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-calcul-cells-s-center-withn-a-distributed-cgns-tree">Step 4 – Calcul cells’s center withn a distributed CGNS tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-use-bigger-meshes">Step 5 – use bigger meshes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../related_projects.html">Related projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Maia</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../interactive_tuto.html">Interactive Tutorials</a></li>
+      <li class="breadcrumb-item active">test thebe</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/notebook_tutorials/04_maia_algo/compute_centers3.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="test-thebe">
+<span id="pt-compute-centers3"></span><h1>test thebe<a class="headerlink" href="#test-thebe" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Using <strong>Maia</strong>, a Python/C++ library for working with CGNS meshes in parallel with MPI. The idea of this activity is to write an algorithm in a “distributed way”, ie. operating on a distributed tree.</p>
+<p>The objective is to compare three methods for calculating the geometric centers of mesh cells from a CGNS tree:</p>
+<ol class="arabic simple">
+<li><p>A sequential algorithm,</p></li>
+<li><p>A parallel algorithm on a partitioned tree,</p></li>
+<li><p>A fully distributed algorithm.</p></li>
+</ol>
+<p>You’ll discover how to:</p>
+<ul class="simple">
+<li><p>Load CGNS trees in distributed, sequential, partitioned version and compare the execution times,</p></li>
+<li><p>Apply field calculations across unstructured meshes,</p></li>
+<li><p>Utilize Maia’s exchange and indexing tools to perform tasks in parallel,</p></li>
+<li><p>Examine the trade-offs between each method’s design and performance.</p></li>
+</ul>
+<p>These exercises, which are particularly appropriate for individuals wishing to expand or enhance parallel mesh processing pipelines, demonstrates a common development task when developing new functionalities in Maia.</p>
+</section>
+<section id="step-1-import-modules">
+<h2>Step 1 – import modules<a class="headerlink" href="#step-1-import-modules" title="Link to this heading"></a></h2>
+<p>Maia operates in parallel! The so-called COMM_WORLD communicator must be imported from mpi4py first because practically all functions require an MPI communicator.
+We need to import COMM_WORLD communicator from mpi4py, numpy, and time.</p>
+<div class="cell tag_```{code-cell}_python_:class:_thebe___________:thebe-init:_true_ docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpi4py</span><span class="w"> </span><span class="kn">import</span> <span class="n">MPI</span>
+<span class="n">comm</span> <span class="o">=</span> <span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Open the documentation that will be useful for this TP first: /Maia/1.3/index.html https://onera.github.io.
+Take a brief look at the structure of the various modules (UserManual) and the definition of parallel CGNSTree (Introducion &gt; Maia CGNS Tree). Then, import maia and the module pytree of maia.</p>
+<div class="cell tag_```{code-cell}_python_:class:_thebe___________:thebe-init:_true_ docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">maia</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">maia.pytree</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">PT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">maia</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">maia.pytree</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">PT</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Bureau</span><span class="o">/</span><span class="n">maia_dev</span><span class="o">/</span><span class="n">Maia</span><span class="o">/</span><span class="n">maia</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">packaging.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">Version</span><span class="p">,</span> <span class="n">InvalidVersion</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.6&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">Pypdm.Pypdm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">PDM</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">pdm_has_parmetis</span> <span class="o">=</span> <span class="n">PDM</span><span class="o">.</span><span class="n">pdm_has_parmetis</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">pdm_has_ptscotch</span> <span class="o">=</span> <span class="n">PDM</span><span class="o">.</span><span class="n">pdm_has_ptscotch</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Bureau</span><span class="o">/</span><span class="n">maia_dev</span><span class="o">/</span><span class="n">Maia</span><span class="o">/</span><span class="n">build</span><span class="o">/</span><span class="n">external</span><span class="o">/</span><span class="n">paradigm</span><span class="o">/</span><span class="n">Cython</span><span class="o">/</span><span class="n">Pypdm</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Necessary for fused type DO NOT REMOVE</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.Pypdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedMesh</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.Pypdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedMeshCapsule</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.Pypdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedMeshNodal</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;Pypdm.Pypdm&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s1">&#39;tetra10.hdf&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_generate_case</span><span class="p">():</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">maia</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">generate_dist_block</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;TETRA_4&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+        <span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">dist_tree_to_file</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">FILENAME</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-create-an-instance">
+<h2>Step 2 – Create an instance<a class="headerlink" href="#step-2-create-an-instance" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Create an instance of the DIndexer class by providing:</p>
+<ul>
+<li><p>a distribution tree (distri),</p></li>
+<li><p>a list of indices (indices),</p></li>
+<li><p>and a communicator (comm, e.g., from MPI).</p></li>
+</ul>
+</li>
+<li><p>Use the take(data_in) method to extract and transfer data based on the given indices and the parallel distribution.</p></li>
+<li><p>The method returns the portion of the data that corresponds to the local partition.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DIndexer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distri</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">comm</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">maia.transfer</span><span class="w"> </span><span class="kn">import</span> <span class="n">protocols</span> <span class="k">as</span> <span class="n">EP</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btp</span> <span class="o">=</span> <span class="n">EP</span><span class="o">.</span><span class="n">GlobalIndexer</span><span class="p">(</span><span class="n">distri</span><span class="p">,</span> <span class="n">indices</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">take</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_in</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">btp</span><span class="o">.</span><span class="n">Take</span><span class="p">(</span><span class="n">data_in</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-calcul-cells-s-center-withn-a-cgns-zone">
+<h2>Step 3 – Calcul cells’s center withn a CGNS zone<a class="headerlink" href="#step-3-calcul-cells-s-center-withn-a-cgns-zone" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Create a function called compute_cc_seq(tree) that determines each cell’s geometric center, or centroid, within a CGNS zone.</p></li>
+<li><p>Within the function:</p>
+<ul>
+<li><p>Use PT.get_node_from_label(tree, ‘Zone_t’) to retrieve the zone node from the tree.</p></li>
+<li><p>Use PT.Zone.coordinates(zone) to extract the node coordinates cx, cy, and cz.</p></li>
+<li><p>Use PT.get_node_from_name(zone, ‘ElementConnectivity’)[1] to obtain the cell connectivity array.</p></li>
+</ul>
+</li>
+<li><p>Assume that every cell is a quadruple consisting of four nodes.</p>
+<ul>
+<li><p>Use connec_idx = 4 * np.arange(n_elem+1) to calculate the number of elements and construct the connectivity index array.</p></li>
+</ul>
+</li>
+<li><p>To determine the average coordinates (mean_x, mean_y, and mean_z) for every cell, use np.add.reduceat and np.take.</p></li>
+<li><p>At the CellCenter location, create a new FlowSolution_t node called “Centers.”</p>
+<ul>
+<li><p>Enter the calculated centroids in the “CCX,” “CCY,” and “CCZ” fields.</p></li>
+<li><p>Connect this node to the zone.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_cc_seq</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="n">zone</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">get_node_from_label</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">&#39;Zone_t&#39;</span><span class="p">)</span>
+
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">cz</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">Zone</span><span class="o">.</span><span class="n">coordinates</span><span class="p">(</span><span class="n">zone</span><span class="p">)</span>
+    <span class="n">connec</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">get_node_from_name</span><span class="p">(</span><span class="n">zone</span><span class="p">,</span> <span class="s1">&#39;ElementConnectivity&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">n_elem</span> <span class="o">=</span> <span class="n">connec</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">4</span>
+    <span class="n">connec_idx</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_elem</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">mean_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">connec</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">mean_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cy</span><span class="p">,</span> <span class="n">connec</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">mean_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cz</span><span class="p">,</span> <span class="n">connec</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+
+    <span class="n">PT</span><span class="o">.</span><span class="n">new_FlowSolution</span><span class="p">(</span><span class="s1">&#39;Centers&#39;</span><span class="p">,</span>
+                        <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;CellCenter&#39;</span><span class="p">,</span>
+                        <span class="n">fields</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CCX&#39;</span> <span class="p">:</span> <span class="n">mean_x</span><span class="p">,</span> <span class="s1">&#39;CCY&#39;</span> <span class="p">:</span> <span class="n">mean_y</span><span class="p">,</span> <span class="s1">&#39;CCZ&#39;</span> <span class="p">:</span> <span class="n">mean_z</span><span class="p">},</span>
+                        <span class="n">parent</span><span class="o">=</span><span class="n">zone</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-calcul-cells-s-center-withn-a-distributed-cgns-tree">
+<h2>Step 4 – Calcul cells’s center withn a distributed CGNS tree<a class="headerlink" href="#step-4-calcul-cells-s-center-withn-a-distributed-cgns-tree" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>To calculate cell centers (centroids) on a distributed CGNS tree, define the function compute_cc_dist(dist_tree, comm).</p></li>
+<li><p>Within the function:</p>
+<ul>
+<li><p>Use PT.get_node_from_label(dist_tree, ‘Zone_t’) to retrieve the zone node from the distributed tree.</p></li>
+<li><p>Use PT.Zone.coordinates(zone) to extract the distributed node coordinates cx, cy, and cz.</p></li>
+<li><p>Use PT.get_node_from_name(zone, ‘ElementConnectivity’)[1] to obtain the element connectivity array.</p></li>
+</ul>
+</li>
+<li><p>Use PT.maia.getDistribution(zone, ‘Vertex’)[1] to obtain the vertex distribution.</p></li>
+<li><p>Using the connectivity array, the MPI communicator comm, and the vertex distribution, create a DIndexer instance.</p></li>
+<li><p>Assume that every cell is a quad with four nodes.</p>
+<ul>
+<li><p>Construct the connectivity index array by calculating the number of elements: connec_idx = 4 * np.arange(dn_elem+1).</p></li>
+</ul>
+</li>
+<li><p>To remap distributed coordinates to a local view, utilize the indexer.take() method:</p>
+<ul>
+<li><p>Use np.add.reduceat(…) / 4 to calculate the mean coordinates (mean_x, mean_y, and mean_z) for each cell.</p></li>
+</ul>
+</li>
+<li><p>Make a brand-new FlowSolution_t node called ‘Centers’ at the CellCenter location.</p>
+<ul>
+<li><p>Add the computed centroid coordinates as fields ‘CCX’, ‘CCY’, and ‘CCZ’.</p></li>
+<li><p>Attach this solution node to the zone.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_cc_dist</span><span class="p">(</span><span class="n">dist_tree</span><span class="p">,</span> <span class="n">comm</span><span class="p">):</span>
+    <span class="n">zone</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">get_node_from_label</span><span class="p">(</span><span class="n">dist_tree</span><span class="p">,</span> <span class="s1">&#39;Zone_t&#39;</span><span class="p">)</span>
+
+    <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">cz</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">Zone</span><span class="o">.</span><span class="n">coordinates</span><span class="p">(</span><span class="n">zone</span><span class="p">)</span>
+    <span class="n">connec</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">get_node_from_name</span><span class="p">(</span><span class="n">zone</span><span class="p">,</span> <span class="s1">&#39;ElementConnectivity&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">vtx_distri</span> <span class="o">=</span> <span class="n">PT</span><span class="o">.</span><span class="n">maia</span><span class="o">.</span><span class="n">get_Distribution</span><span class="p">(</span><span class="n">zone</span><span class="p">,</span> <span class="s1">&#39;Vertex&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">indexer</span> <span class="o">=</span> <span class="n">DIndexer</span><span class="p">(</span><span class="n">vtx_distri</span><span class="p">,</span> <span class="n">connec</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+    
+
+    <span class="n">dn_elem</span> <span class="o">=</span> <span class="n">connec</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">4</span>
+    <span class="n">connec_idx</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dn_elem</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">mean_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">indexer</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cx</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">mean_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">indexer</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cy</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="n">mean_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduceat</span><span class="p">(</span><span class="n">indexer</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">cz</span><span class="p">),</span> <span class="n">connec_idx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">4</span>
+    
+    <span class="n">PT</span><span class="o">.</span><span class="n">new_FlowSolution</span><span class="p">(</span><span class="s1">&#39;Centers&#39;</span><span class="p">,</span>
+                        <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;CellCenter&#39;</span><span class="p">,</span>
+                        <span class="n">fields</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;CCX&#39;</span> <span class="p">:</span> <span class="n">mean_x</span><span class="p">,</span> <span class="s1">&#39;CCY&#39;</span> <span class="p">:</span> <span class="n">mean_y</span><span class="p">,</span> <span class="s1">&#39;CCZ&#39;</span> <span class="p">:</span> <span class="n">mean_z</span><span class="p">},</span>
+                        <span class="n">parent</span><span class="o">=</span><span class="n">zone</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-use-bigger-meshes">
+<h2>Step 5 – use bigger meshes<a class="headerlink" href="#step-5-use-bigger-meshes" title="Link to this heading"></a></h2>
+<p>NB : you can try with bigger meshes, first you need to generate it using
+dist_tree = maia.factory.generate_dist_block(101, ‘TETRA_4’, comm)
+maia.io.dist_tree_to_file(dist_tree, ‘tetra100.hdf’, comm)</p>
+<p>Use the file ‘tetra10.hdt’ to calculate cells center with the function compute_cc_seq, then save the resulting tree to a file named sol.hdf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_generate_case</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequential</span>
+<span class="k">if</span> <span class="n">comm</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_tree</span><span class="p">(</span><span class="s1">&#39;tetra10.hdf&#39;</span><span class="p">)</span>
+    <span class="n">compute_cc_seq</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">&#39;sol.hdf&#39;</span><span class="p">)</span>
+    <span class="n">PT</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we want to use the same file ‘tetra10.hdf’ with parallel partiotioned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">file_to_dist_tree</span><span class="p">(</span><span class="s1">&#39;tetra10.hdf&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">ptree</span> <span class="o">=</span> <span class="n">maia</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">partition_dist_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">compute_cc_seq</span><span class="p">(</span><span class="n">ptree</span><span class="p">)</span>
+<span class="n">maia</span><span class="o">.</span><span class="n">transfer</span><span class="o">.</span><span class="n">part_tree_to_dist_tree_all</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">ptree</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">dist_tree_to_file</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">&#39;sol.hdf&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">PT</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we want to use the same file ‘tetra10.hdf’ with parallel distributed.</p>
+<div class="cell tag_hide_input_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">file_to_dist_tree</span><span class="p">(</span><span class="s1">&#39;tetra10.hdf&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">compute_cc_dist</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">maia</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">dist_tree_to_file</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">&#39;sol.hdf&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="p">)</span>
+<span class="n">PT</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "amehri-upvd/testMaiaBinder",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebook_tutorials/04_maia_algo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compute_centers_interactif.html" class="btn btn-neutral float-left" title="Developing and Comparing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../release_notes.html" class="btn btn-neutral float-right" title="Release notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, ONERA The French Aerospace Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: dev
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      
+      
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/mesh/maia/dev/">dev</a></dd>
+        
+          <dd><a href="/mesh/maia/1.6/">1.6</a></dd>
+        
+          <dd><a href="/mesh/maia/1.5/">1.5</a></dd>
+        
+          <dd><a href="/mesh/maia/1.4/">1.4</a></dd>
+        
+          <dd><a href="/mesh/maia/1.3/">1.3</a></dd>
+        
+          <dd><a href="/mesh/maia/1.2/">1.2</a></dd>
+        
+          <dd><a href="/mesh/maia/1.1/">1.1</a></dd>
+        
+          <dd><a href="/mesh/maia/1.0/">1.0</a></dd>
+        
+      </dl>
+      
+      
+      
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+ 
+    </div>
+  </div>
+
+ <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
