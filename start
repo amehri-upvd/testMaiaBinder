@@ -22,8 +22,10 @@ if [ -f "airplane_eltR4_fields.cgns" ] && \
   cd /home/jovyan
 fi
 
-# Launch voila
-#entrypoint: voila --port=$PORT --no-browser --template vuetify-default --enable_nbextensions=True compute_centers.ipynb
+# Activate parallel notebook
+cd interactive_tutorials
+python3 parallel_defalut.py
+cd /home/jovyan
 
 
 exec "$@"
