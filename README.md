@@ -6,7 +6,7 @@ Interactive Tutorial with voilà :
 
 
 
-This repository contains configuration files for running MAIA in a MyBinder environment.
+This repository contains configuration files for running MAIA on a MyBinder environment.
 
 ## Features
 
