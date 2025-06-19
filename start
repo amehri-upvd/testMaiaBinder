@@ -24,7 +24,7 @@ fi
 
 # Activate parallel notebook
 cd interactive_tutorials
-python3 parallel_defalut.py
+python3 parallel_default.py
 cd /home/jovyan
 
 
