@@ -1,4 +1,4 @@
-# Developing Maia on Binder
+# Deploying Maia on Binder
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/amehri-upvd/testMaiaBinder/HEAD)
 
 Interactive Tutorial with voilà : 
